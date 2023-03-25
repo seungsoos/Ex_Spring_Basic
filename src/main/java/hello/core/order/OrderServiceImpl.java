@@ -1,15 +1,14 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
-import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
@@ -20,7 +19,6 @@ public class OrderServiceImpl implements OrderService{
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-
 
     //DIP 규칙위반 :  구현체 -> 추상에만의존해야하지만 new 구현체 의존하였기 때문
     //OCP 규칙위반 : ServiceImpl의 코드도 고쳐야되기때문에
