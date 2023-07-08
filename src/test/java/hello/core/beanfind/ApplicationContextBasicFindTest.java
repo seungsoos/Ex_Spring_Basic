@@ -48,6 +48,6 @@ public class ApplicationContextBasicFindTest {
     @DisplayName("빈 이름으로 조회X")
     void findBeanByNameX(){
         assertThrows(NoSuchBeanDefinitionException.class,
-                () -> ac.getBean("xxxxx", MemberService.class));
+                () -> ac.getBean("xxxxx", MemberService.class)); // xxxxx으로 빈조회시 없다면 예외를 터트린다.
     }
 }
