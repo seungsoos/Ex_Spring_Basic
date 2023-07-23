@@ -21,6 +21,8 @@ class StatefulServiceTest {
         int userBPrice =statefulService2.order("userB", 20000);
         //ThreadA : 사용자A 주문금액 조회
         System.out.println(userAPrice);
+        System.out.println(userBPrice);
+
         Assertions.assertThat(userAPrice).isEqualTo(10000);
     }
 
