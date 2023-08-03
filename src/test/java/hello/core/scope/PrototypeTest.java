@@ -19,9 +19,10 @@ public class PrototypeTest {
         System.out.println("PrototypeBean1 = " + prototypeBean1);
         System.out.println("PrototypeBean2 = " + prototypeBean2);
 
+        // prototype으로 요청시마다 새로운 객체를 반환한다.
         Assertions.assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
         ac.close();
-
+        // prototype으로 종료 메서드는 클라이언트가 실행하여야한다.
         prototypeBean1.destroy();
         prototypeBean2.destroy();
     }
